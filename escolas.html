@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre as escolas</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #4169E1;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .lista-escolas {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .escola-item {
+            display: flex;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            align-items: center;
+        }
+
+        .escola-item img {
+            width: 350px;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+
+        .escola-info {
+            flex: 1;
+        }
+
+        #filtro {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Escolas</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastro.html">Formulário</a></li>
+                <li><a href="escolas.html">Escolas</a></li>
+                <li><a href="sobre.html">Dúvidas</a></li>
+                <li><a href="denuncia.html">Denúncia e feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Dados sobre as escolas da Zona Oeste de São Paulo</h2>
+
+        <!-- Campo de filtro -->
+        <input type="text" id="filtro" placeholder="Filtrar por nome da escola...">
+
+        <div class="lista-escolas">
+            <div class="escola-item">
+                <img src="img/escola1.png" alt="Escola 1">
+                <div class="escola-info">
+                    <h3>Escola Estadual Dr. Edmundo de Carvalho</h3>
+                    <p>Endereço: R. Tibério, 144 - Perdizes, São Paulo - SP, 05042-010<br>
+                        Telefone: (11) 3864-2266</p>
+                    <p>Avaliação: 4,4/5 <br>
+                        Acessibilidade: Entrada com acessibilidade para pessoas em cadeira de rodas. Estacionamento com acessibilidade.</p>
+                </div>
+            </div>
+
+            <div class="escola-item">
+                <img src="img/escola2.png" alt="Escola 2">
+                <div class="escola-info">
+                    <h3>Escola Estadual Brasilio Machado</h3>
+                    <p>Endereço: Rua Morás, 630 - Vila Madalena, São Paulo - SP, 05434-020<br>
+                        Telefone: (11) 3034-2110</p>
+                    <p>Avaliação: 4,5/5<br>
+                        Acessibilidade: Entrada e estacionamento com acessibilidade.</p>
+                </div>
+            </div>
+
+            <div class="escola-item">
+                <img src="img/escola3.png" alt="Escola 3">
+                <div class="escola-info">
+                    <h3>Escola Estadual Fernão Dias Paes</h3>
+                    <p>Endereço: Av. Pedroso de Morais, 420 - Pinheiros, São Paulo - SP, 05420-000<br>
+                        Telefone: (11) 3032-3860</p>
+                    <p>Avaliação: 4/5 <br>
+                        Acessibilidade: Entrada e estacionamento com acessibilidade.</p>
+                </div>
+            </div>
+
+            <div class="escola-item">
+                <img src="img/escola4.png" alt="Escola 4">
+                <div class="escola-info">
+                    <h3>Escola Estadual Alfredo Bresser</h3>
+                    <p>Endereço: R. Padre Carvalho - Pinheiros, São Paulo - SP, 05427-100<br>
+                        Telefone: (11) 3672-6095</p>
+                    <p>Avaliação: 4/5<br>
+                        Acessibilidade: Entrada e estacionamento com acessibilidade.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("filtro").addEventListener("input", function () {
+            const termo = this.value.toLowerCase();
+            const escolas = document.querySelectorAll(".escola-item");
+
+            escolas.forEach(function (item) {
+                const nome = item.querySelector("h3").innerText.toLowerCase();
+                item.style.display = nome.includes(termo) ? "flex" : "none";
+            });
+        });
+    </script>
+</body>
+</html>
